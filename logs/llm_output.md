@@ -1,0 +1,5 @@
+- DE-LU DA model output is above the baseline and recent realized levels: forecast avg 104.56 EUR/MWh vs baseline 65.36 EUR/MWh and 14d actual avg 70.09 EUR/MWh.
+- Versus the manual front-week curve mark, the model implies a small discount: reference 110.22 EUR/MWh, fair value premium -5.66 EUR/MWh.
+- Net view remains Neutral / no strong prompt bias because the premium is well inside the validation MAE of 19.49 EUR/MWh, so the signal is not strong enough to justify a directional prompt-curve call.
+- Model quality is materially better than the naive baseline (MAE 19.49 vs 48.31 EUR/MWh; RMSE 33.70 vs 74.09 EUR/MWh), but the xgboost model still shows negative bias (-10.43 EUR/MWh), so it may understate prices.
+- Invalidation triggers: if the DA forecast vs curve mark gap widens beyond +/-19.49 EUR/MWh, if the model bias flips materially, or if new market data pushes the 14d actual average or curve mark materially away from the current 70.09 / 110.22 EUR/MWh anchors.
