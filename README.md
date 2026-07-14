@@ -102,6 +102,10 @@ The LLM is not used to forecast prices. It is used after validation to reduce ma
 - logged prompt and output files
 - explicit instruction not to invent data
 
+### Why Low Reasoning Effort?
+
+The numerical forecast, QA checks, and curve calculations are completed before the LLM is called. The model receives structured JSON and turns it into at most five constrained commentary bullets, so this is short post-processing rather than complex multi-step analysis. Explicit `low` effort avoids GPT-5.6's default `medium` reasoning overhead while retaining the prompt constraints and logged outputs used for review. It does not make the commentary deterministic or guarantee factual accuracy; the structured inputs, no-invention instruction, and human review remain the safeguards. The setting should move to `medium` only if representative evaluations show a material improvement in commentary quality. This matches [OpenAI's guidance](https://developers.openai.com/api/docs/guides/latest-model) to use higher reasoning effort when it delivers a measured benefit.
+
 Sample logs are included in:
 
 - `logs/llm_prompt.md`
