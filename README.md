@@ -95,8 +95,9 @@ The LLM is not used to forecast prices. It is used after validation to reduce ma
 
 `src/power_fair_value/llm_component.py` sends structured JSON containing QA results, model metrics, and curve-view fields to the OpenAI Responses API with:
 
+- `gpt-5.6-luna` by default, overridable with `OPENAI_MODEL`
 - a constrained system prompt
-- `temperature=0`
+- no `temperature` parameter, because GPT-5.6 models do not support it
 - logged prompt and output files
 - explicit instruction not to invent data
 

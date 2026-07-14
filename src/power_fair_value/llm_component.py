@@ -70,12 +70,11 @@ def draft_trading_note(summary: dict[str, object], logs_dir: Path) -> str:
 
     client = OpenAI(api_key=api_key)
     response = client.responses.create(
-        model=os.getenv("OPENAI_MODEL", "chat-latest"),
+        model=os.getenv("OPENAI_MODEL", "gpt-5.6-luna"),
         input=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt},
         ],
-        temperature=0,
         store=True,
     )
     output = ascii_clean(response.output_text)
