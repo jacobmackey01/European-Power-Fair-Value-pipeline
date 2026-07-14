@@ -90,6 +90,6 @@ The LLM component is a reporting layer, not a forecaster. It receives structured
 - curve-view fields
 - decision threshold and stance
 
-The prompt is constrained to produce concise, auditable commentary and explicitly tells the model not to invent data. The request uses `gpt-5.6-luna` by default and omits the unsupported `temperature` parameter. Both the prompt and output are written to disk for review.
+The prompt is constrained to produce concise, auditable commentary and explicitly tells the model not to invent data. The request uses `gpt-5.6-luna` with `reasoning.effort="low"` and omits the unsupported `temperature` parameter. Both the prompt and output are written to disk for review.
 
 This design keeps the numeric model deterministic and uses the LLM only to reduce manual report-writing overhead.
